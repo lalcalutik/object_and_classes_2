@@ -40,9 +40,4 @@ public class Book {
         );
     }
 
-    @Override
-    public String toString() {
-        return "Название книги: " + bookTitle + ", год издания: " + theYearOfPublishing +
-                ", автор: " + author;
-    }
 }
