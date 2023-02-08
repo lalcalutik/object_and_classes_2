@@ -40,9 +40,30 @@ public class Book {
         );
     }
 
+
     @Override
     public String toString() {
         return "Название книги: " + bookTitle + ", год издания: " + theYearOfPublishing +
                 ", автор: " + author;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Book book = (Book) o;
+        return theYearOfPublishing == book.theYearOfPublishing && this.bookTitle.equals(book.getBookTitle())
+                && this.author.equals(book.getAuthor());
+
+    }
+
+    @Override
+    public int hashCode() {
+        String w = this.bookTitle + this.theYearOfPublishing + this.author + "qwerty"; // добавил "соль" для уменьшения шансов коллизии
+        return  w.hashCode();
     }
 }
